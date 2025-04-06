@@ -1,16 +1,19 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function LoginButton() {
   const [showForm, setShowForm] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (username === "user123" && password === "!234") {
       setErrorMessage("");
+      navigate("/home");
     } else {
       setErrorMessage("Invalid username or password");
     }

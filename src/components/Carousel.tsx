@@ -4,7 +4,7 @@ function Carousel() {
       id="carouselExampleFade"
       className="carousel slide carousel-fade"
       style={{
-        maxWidth: "800px",
+        maxWidth: "1000px",
         margin: "0 auto",
         border: "5px solid #DCDEE6",
         borderRadius: "10px",

@@ -1,30 +1,16 @@
-import HeaderBar from "./components/HeaderBar";
-import Carousel from "./components/Carousel";
-import LoginButton from "./components/LoginButton";
-import SignUpButton from "./components/SignUpButton";
+import "./App.css";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import LoginPage from "./pages/LoginPage";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
-    <div>
-      <HeaderBar />
-      <br></br>
-      <br></br>
-      <br></br>
-      <h1 style={{ textAlign: "center" }}>Welcome to TOTOrious!</h1>
-      <h3 style={{ textAlign: "center" }}>
-        Don't know what numbers to buy? Fret not!
-      </h3>
-      <br></br>
-      <br></br>
-      <br></br>
-      <Carousel />
-      <br></br>
-      <br></br>
-      <LoginButton />
-      <br></br>
-      <SignUpButton />
-      <br></br>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/home" element={<HomePage />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -1,13 +1,13 @@
-function HeaderBar() {
+import { Link } from "react-router-dom";
+
+function HomeHeaderBar() {
   return (
     <nav
       className="navbar navbar-expand-lg"
       style={{ backgroundColor: "#DCDEE6" }}
     >
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
-          TOTOrious
-        </a>
+        <span className="navbar-brand">TOTOrious</span>
         <button
           className="navbar-toggler"
           type="button"
@@ -22,19 +22,19 @@ function HeaderBar() {
         <div className="collapse navbar-collapse" id="navbarText">
           <ul className="navbar-nav nav-underline">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <Link className="nav-link active" to="/home">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" to="/about">
                 About
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" to="/pricing">
                 Pricing
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -43,4 +43,4 @@ function HeaderBar() {
   );
 }
 
-export default HeaderBar;
+export default HomeHeaderBar;
