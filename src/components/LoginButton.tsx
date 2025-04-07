@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 
 function LoginButton() {
   const [showForm, setShowForm] = useState(false);
@@ -7,11 +8,13 @@ function LoginButton() {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
-
+  const { login } = useAuth();
+  
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (username === "user123" && password === "!234") {
+    const success = login(username, password);
+    if (success) {
       setErrorMessage("");
       navigate("/home");
     } else {
