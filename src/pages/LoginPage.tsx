@@ -1,9 +1,29 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
+
 import LoginHeaderBar from "../components/LoginHeaderBar";
 import Carousel from "../components/Carousel";
 import LoginButton from "../components/LoginButton";
 import SignUpButton from "../components/SignUpButton";
 
 function LoginPage() {
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleLogin = () => {
+    const success = login(username, password);
+    if (success) {
+      navigate("/home");
+    } else {
+      setError("Invalid username or password");
+    }
+  };
+  
   return (
     <div>
       <LoginHeaderBar />
