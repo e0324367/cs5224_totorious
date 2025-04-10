@@ -7,51 +7,70 @@ import WinningEntries from "../components/WinningEntries";
 
 const HomePage: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<string>("");
-  const [mockData, setMockData] = useState<any>(null);
+  const [data, setData] = useState<any>(null);
+  const [getting, setGetting] = useState<boolean>(false);
 
   const handleDropdownChange = (value: string) => {
     setSelectedOption(value);
-    fetchMockData(value);
+    fetchData(value);
   };
+  async function fetchData(selectedOption: string) {
+    setGetting(true);
 
-  // Simulate backend data
-  const fetchMockData = (option: string) => {
-    const data = {
-      past_month: {
-        highestFrequency: [1, 2, 3, 4, 5, 6],
-        lowestFrequency: [7, 8, 9, 10, 11, 12],
-        outlets: { gold: "Outlet A", silver: "Outlet B", bronze: "Outlet C" },
-        entries: ["Entry 1", "Entry 2", "Entry 3"],
-      },
-      past_6_months: {
-        highestFrequency: [2, 4, 6, 8, 10, 12],
-        lowestFrequency: [1, 3, 5, 7, 9, 11],
-        outlets: { gold: "Outlet D", silver: "Outlet E", bronze: "Outlet F" },
-        entries: ["Entry 4", "Entry 5", "Entry 6"],
-      },
-      // Add more mock data for other options...
-    };
+    const apiUrl = "http://47.128.65.231:3000/api/toto-summary";
 
-    setMockData(data[option] || null);
-  };
+    try {
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ duration: selectedOption }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+      }
+
+      const responseData = await response.json();
+      setData(responseData);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    } finally {
+      setGetting(false);
+    }
+  }
 
   return (
     <div className="homepage">
       <HomeHeaderBar />
       <h1>TOTO Data Dashboard</h1>
       <Dropdown onChange={handleDropdownChange} />
-      {mockData && (
+      {getting && <p>Fetching data...</p>}
+      {data && (
         <>
           <TotoNumbers
             title="TOTO Numbers Drawn with Highest Frequency"
-            numbers={mockData.highestFrequency}
+            numbers={data.most_frequent_numbers}
           />
           <TotoNumbers
             title="TOTO Numbers Drawn with Lowest Frequency"
-            numbers={mockData.lowestFrequency}
+            numbers={data.least_frequent_numbers}
           />
-          <WinningOutlets outlets={mockData.outlets} />
-          <WinningEntries entries={mockData.entries} />
+          <WinningOutlets
+            outlets={{
+              gold: data.top_outlets.first,
+              silver: data.top_outlets.second,
+              bronze: data.top_outlets.third,
+            }}
+          />
+          <WinningEntries
+            entries={[
+              data.top_entry_types.first,
+              data.top_entry_types.second,
+              data.top_entry_types.third,
+            ]}
+          />
         </>
       )}
     </div>
