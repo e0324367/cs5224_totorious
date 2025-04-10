@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 
 function HomeHeaderBar() {
+  const { logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+    window.location.href = "/";
+  };
+
   return (
     <nav
       className="navbar navbar-expand-lg"
@@ -20,7 +28,7 @@ function HomeHeaderBar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarText">
-          <ul className="navbar-nav nav-underline">
+          <ul className="navbar-nav nav-underline me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <Link className="nav-link active" to="/home">
                 Home
@@ -37,6 +45,9 @@ function HomeHeaderBar() {
               </Link>
             </li>
           </ul>
+          <button type="button" className="btn nav-link" onClick={handleLogout}>
+            Logout
+          </button>
         </div>
       </div>
     </nav>

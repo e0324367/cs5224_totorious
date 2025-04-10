@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../contexts/AuthContext.tsx";
 
 function LoginButton() {
   const [showForm, setShowForm] = useState(false);
@@ -9,7 +9,7 @@ function LoginButton() {
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
   const { login } = useAuth();
-  
+
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
 
