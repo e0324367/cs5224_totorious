@@ -17,16 +17,18 @@ const HomePage: React.FC = () => {
   async function fetchData(selectedOption: string) {
     setGetting(true);
 
-    const apiUrl = "http://47.128.65.231:3000/api/toto-summary";
+    const rangeMap: Record<string, string> = {
+      past_3_months: "3m",
+      past_6_months: "6m",
+      past_year: "1y",
+      past_till_2014: "all",
+    };
+
+    const rangeValue = rangeMap[selectedOption];
+    const apiUrl = `http://47.128.65.231:3000/api/summary?range=${rangeValue}`;
 
     try {
-      const response = await fetch(apiUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ duration: selectedOption }),
-      });
+      const response = await fetch(apiUrl); // GET request
 
       if (!response.ok) {
         throw new Error(`Error: ${response.statusText}`);
