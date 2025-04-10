@@ -28,8 +28,7 @@ const HomePage: React.FC = () => {
     const apiUrl = `http://47.128.65.231:3000/api/summary?range=${rangeValue}`;
 
     try {
-      const response = await fetch(apiUrl); // GET request
-
+      const response = await fetch(apiUrl);
       if (!response.ok) {
         throw new Error(`Error: ${response.statusText}`);
       }
