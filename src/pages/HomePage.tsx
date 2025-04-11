@@ -25,10 +25,15 @@ const HomePage: React.FC = () => {
     };
 
     const rangeValue = rangeMap[selectedOption];
-    const apiUrl = `http://47.128.65.231:3000/api/summary?range=${rangeValue}`;
+    const apiUrl = `http://13.212.58.159:3000/api/summary?range=${rangeValue}`;
 
     try {
-      const response = await fetch(apiUrl);
+      const response = await fetch(apiUrl, {
+        headers: {
+          // Updated API key in the headers, crucial for backend to authenticate the requests.
+          'x-api-key': '8YhW1RrULH8Wk@9aZ!x2qL#Mf$3Vj7Nc',
+        },
+      });
       if (!response.ok) {
         throw new Error(`Error: ${response.statusText}`);
       }
