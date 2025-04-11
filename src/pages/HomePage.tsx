@@ -10,6 +10,26 @@ const HomePage: React.FC = () => {
   const [data, setData] = useState<any>(null);
   const [getting, setGetting] = useState<boolean>(false);
 
+  const numberToEntry: Record<string, string> = {
+    "0": "Ordinary Entry",
+    "1": "System 7 Entry",
+    "2": "System 8 Entry",
+    "3": "System 9 Entry",
+    "4": "System 10 Entry",
+    "5": "System 11 Entry",
+    "6": "System 12 Entry",
+    "7": "System Roll Entry",
+    "8": "QuickPick Ordinary Entry",
+    "9": "QuickPick System 7 Entry",
+    "10": "QuickPick System 8 Entry",
+    "11": "QuickPick System 9 Entry",
+    "12": "QuickPick System 10 Entry",
+    "13": "QuickPick System 11 Entry",
+    "14": "QuickPick System 12 Entry",
+    "15": "QuickPick System Roll Entry",
+    "16": "iTOTO",
+  };
+
   const handleDropdownChange = (value: string) => {
     setSelectedOption(value);
     fetchData(value);
@@ -30,8 +50,7 @@ const HomePage: React.FC = () => {
     try {
       const response = await fetch(apiUrl, {
         headers: {
-          // Updated API key in the headers, crucial for backend to authenticate the requests.
-          'x-api-key': '8YhW1RrULH8Wk@9aZ!x2qL#Mf$3Vj7Nc',
+          "x-api-key": "8YhW1RrULH8Wk@9aZ!x2qL#Mf$3Vj7Nc",
         },
       });
       if (!response.ok) {
@@ -50,35 +69,46 @@ const HomePage: React.FC = () => {
   return (
     <div className="homepage">
       <HomeHeaderBar />
-      <h1>TOTO Data Dashboard</h1>
-      <Dropdown onChange={handleDropdownChange} />
-      {getting && <p>Fetching data...</p>}
-      {data && (
-        <>
-          <TotoNumbers
-            title="TOTO Numbers Drawn with Highest Frequency"
-            numbers={data.most_frequent_numbers}
-          />
-          <TotoNumbers
-            title="TOTO Numbers Drawn with Lowest Frequency"
-            numbers={data.least_frequent_numbers}
-          />
-          <WinningOutlets
-            outlets={{
-              gold: data.top_outlets.first,
-              silver: data.top_outlets.second,
-              bronze: data.top_outlets.third,
-            }}
-          />
-          <WinningEntries
-            entries={[
-              data.top_entry_types.first,
-              data.top_entry_types.second,
-              data.top_entry_types.third,
-            ]}
-          />
-        </>
-      )}
+      <div className="container-fluid">
+        <h1>TOTO Data Dashboard</h1>
+        <Dropdown onChange={handleDropdownChange} />
+        {getting && <p>Fetching data...</p>}
+        {data && (
+          <>
+            <TotoNumbers
+              title="TOTO Numbers Drawn with Highest Frequency"
+              numbers={data.most_frequent_numbers}
+            />
+            <TotoNumbers
+              title="TOTO Numbers Drawn with Lowest Frequency"
+              numbers={data.least_frequent_numbers}
+            />
+            <WinningOutlets outlets={data.top_outlets} />
+            <WinningEntries
+              entries={[
+                {
+                  label: "Gold Entry Type",
+                  entries: data.top_entry_types.first.map(
+                    (e: string) => numberToEntry[e]
+                  ),
+                },
+                {
+                  label: "Silver Entry Type",
+                  entries: data.top_entry_types.second.map(
+                    (e: string) => numberToEntry[e]
+                  ),
+                },
+                {
+                  label: "Bronze Entry Type",
+                  entries: data.top_entry_types.third.map(
+                    (e: string) => numberToEntry[e]
+                  ),
+                },
+              ]}
+            />
+          </>
+        )}
+      </div>
     </div>
   );
 };

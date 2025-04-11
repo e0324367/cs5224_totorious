@@ -39,6 +39,17 @@
     width: 30%;
     text-align: center;
   }
+
+  .outlet-box ul {
+    list-style-type: none; /* removes bullets */
+    padding: 0;
+    margin: 0;
+  }
+  
+  .outlet-box li {
+    padding: 5px 0;
+    text-align: center;
+  }
   
   .gold {
     background-color: gold;
@@ -53,7 +64,16 @@
   }
   
   .entries-container {
+    display: flex;
+    justify-content: space-between;
     margin-top: 20px;
+  }
+  
+  .entry-box {
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    text-align: center;
   }
   
   .entries-container ul {

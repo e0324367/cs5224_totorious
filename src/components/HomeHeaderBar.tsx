@@ -45,7 +45,12 @@ function HomeHeaderBar() {
               </Link>
             </li>
           </ul>
-          <button type="button" className="btn nav-link" onClick={handleLogout}>
+          <button
+            type="button"
+            className="btn nav-link"
+            onClick={handleLogout}
+            style={{ color: "#B22222" }}
+          >
             Logout
           </button>
         </div>
