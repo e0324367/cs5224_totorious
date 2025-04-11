@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../contexts/AuthContext.tsx";
 
 import LoginHeaderBar from "../components/LoginHeaderBar";
 import Carousel from "../components/Carousel";
@@ -23,7 +23,7 @@ function LoginPage() {
       setError("Invalid username or password");
     }
   };
-  
+
   return (
     <div>
       <LoginHeaderBar />

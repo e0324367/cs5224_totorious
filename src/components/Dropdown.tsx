@@ -1,16 +1,25 @@
 // src/components/Dropdown.tsx
-import React from 'react';
-import Select from 'react-select';
+import React from "react";
+import Select from "react-select";
 
 interface DropdownProps {
   onChange: (value: string) => void;
 }
 
 const options = [
-  { value: 'past_month', label: 'Display Results Based on Past Month Data' },
-  { value: 'past_6_months', label: 'Display Results Based on Past 6 Months Data' },
-  { value: 'past_year', label: 'Display Results Based on Past Year Data' },
-  { value: 'past_till_2014', label: 'Display Results Based on Past Data till 2014' }
+  {
+    value: "past_3_months",
+    label: "Display Results Based on Past 3 Months Data",
+  },
+  {
+    value: "past_6_months",
+    label: "Display Results Based on Past 6 Months Data",
+  },
+  { value: "past_year", label: "Display Results Based on Past Year Data" },
+  {
+    value: "past_till_2014",
+    label: "Display Results Based on Past Data till 2014",
+  },
 ];
 
 const Dropdown: React.FC<DropdownProps> = ({ onChange }) => {
