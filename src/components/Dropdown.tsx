@@ -9,16 +9,16 @@ interface DropdownProps {
 const options = [
   {
     value: "past_3_months",
-    label: "Display Results Based on Past 3 Months Data",
+    label: "Past 3 Months Data",
   },
   {
     value: "past_6_months",
-    label: "Display Results Based on Past 6 Months Data",
+    label: "Past 6 Months Data",
   },
-  { value: "past_year", label: "Display Results Based on Past Year Data" },
+  { value: "past_year", label: "Past Year Data" },
   {
     value: "past_till_2014",
-    label: "Display Results Based on Past Data till 2014",
+    label: "Past Data till 2014",
   },
 ];
 
@@ -27,7 +27,7 @@ const Dropdown: React.FC<DropdownProps> = ({ onChange }) => {
     <Select
       options={options}
       onChange={(selectedOption: any) => onChange(selectedOption.value)}
-      placeholder="Select Time Period"
+      placeholder="TOTORious, show me what numbers to buy based on:"
     />
   );
 };
