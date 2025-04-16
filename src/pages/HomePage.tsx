@@ -50,19 +50,26 @@ const HomePage: React.FC = () => {
   return (
     <div className="homepage">
       <HomeHeaderBar />
-      <h1>TOTO Data Dashboard</h1>
+      <h1>TOTORious Visualisation & Data Analytics Dashboard</h1>
       <Dropdown onChange={handleDropdownChange} />
       {getting && <p>Fetching data...</p>}
       {data && (
         <>
+          <div className="message-block" style={{ marginTop: "2rem", fontStyle: "italic", color: "#007bff" }}>
+            <p>Consider below if you FOMO! Everyone is buying these numbers, don't let me miss out!</p>
+          </div>
           <TotoNumbers
             title="TOTO Numbers Drawn with Highest Frequency"
             numbers={data.most_frequent_numbers}
           />
+          <div className="message-block" style={{ marginTop: "2rem", fontStyle: "italic", color: "#28a745" }}>
+            <p>Nah, I don't follow the crowd, let me trot the path less taken</p>
+          </div>
           <TotoNumbers
             title="TOTO Numbers Drawn with Lowest Frequency"
             numbers={data.least_frequent_numbers}
           />
+          <h2 style={{ marginTop: "3rem", color: "#dc3545" }}>Top Winning Ticket Outlets</h2>
           <WinningOutlets
             outlets={{
               gold: data.top_outlets.first,
