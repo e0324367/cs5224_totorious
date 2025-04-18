@@ -103,8 +103,8 @@ const HomePage: React.FC = () => {
               }}
             >
               <p>
-                Consider below if you FOMO! Everyone is buying these numbers,
-                don't let me miss out!
+                <b>Consider below if you FOMO! Everyone is buying these numbers,
+                don't let me miss out!</b>
               </p>
             </div>
             <TotoNumbers
@@ -120,7 +120,7 @@ const HomePage: React.FC = () => {
               }}
             >
               <p>
-                Nah, I don't follow the crowd, let me trot the path less taken
+                <b>Nah, I don't follow the crowd, let me trot the path less taken</b>
               </p>
             </div>
             <TotoNumbers
@@ -165,7 +165,7 @@ const HomePage: React.FC = () => {
                 color: "#007bff",
               }}
             >
-              <p>Hmm... how about getting some numbers through 𝓂𝒶𝓉𝒽?</p>
+              <p><b>Hmm... how about getting some numbers through 𝓂𝒶𝓉𝒽?</b></p>
             </div>
             <TotoNumbers title="✨Sigma Numbers✨" numbers={sigmaNumbers} />
           </>
@@ -180,7 +180,7 @@ const HomePage: React.FC = () => {
                 color: "#28a745",
               }}
             >
-              <p>Let me leave it up to fate!</p>
+              <p><b>Let me leave it up to fate!</b></p>
             </div>
             <TotoNumbers
               title="🎲Completely Random Numbers🎲"
