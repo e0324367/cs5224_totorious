@@ -86,8 +86,10 @@ const HomePage: React.FC = () => {
   return (
     <div className="homepage">
       <HomeHeaderBar />
-      <div className="container-fluid">
-        <h1>TOTORious Visualisation & Data Analytics Dashboard</h1>
+      <div className="container custom-width">
+        <h1 style={{ textAlign: "center" }}>
+          TOTORious Visualisation & Data Analytics Dashboard
+        </h1>
         <Dropdown onChange={handleDropdownChange} />
         {getting && <p>Fetching data...</p>}
         {data && (

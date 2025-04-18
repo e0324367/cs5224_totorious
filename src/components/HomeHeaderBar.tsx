@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
 function HomeHeaderBar() {
   const { logout } = useAuth();
+  const location = useLocation();
 
   const handleLogout = () => {
     logout();
@@ -30,18 +31,23 @@ function HomeHeaderBar() {
         <div className="collapse navbar-collapse" id="navbarText">
           <ul className="navbar-nav nav-underline me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" to="/home">
+              <Link
+                className={`nav-link ${
+                  location.pathname === "/home" ? "active" : ""
+                }`}
+                to="/home"
+              >
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about">
+              <Link
+                className={`nav-link ${
+                  location.pathname === "/about" ? "active" : ""
+                }`}
+                to="/about"
+              >
                 About
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/pricing">
-                Pricing
               </Link>
             </li>
           </ul>

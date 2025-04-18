@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function LoginHeaderBar() {
+  const location = useLocation();
+
   return (
     <nav
       className="navbar navbar-expand-lg"
@@ -22,18 +24,23 @@ function LoginHeaderBar() {
         <div className="collapse navbar-collapse" id="navbarText">
           <ul className="navbar-nav nav-underline">
             <li className="nav-item">
-              <Link className="nav-link active" to="/">
+              <Link
+                className={`nav-link ${
+                  location.pathname === "/" ? "active" : ""
+                }`}
+                to="/"
+              >
                 Login
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about">
+              <Link
+                className={`nav-link ${
+                  location.pathname === "/about" ? "active" : ""
+                }`}
+                to="/about"
+              >
                 About
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/pricing">
-                Pricing
               </Link>
             </li>
           </ul>

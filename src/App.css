@@ -74,3 +74,7 @@
     width: 30%;
     text-align: center;
   }
+
+  .custom-width {
+    max-width: 75%
+  }
