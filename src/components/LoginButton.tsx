@@ -25,7 +25,7 @@ function LoginButton() {
   return (
     <div className="d-grid gap-2 col-6 mx-auto">
       <button
-        className="btn btn-primary btn-lg"
+        className="btn login-btn btn-lg"
         type="button"
         onClick={() => {
           setShowForm(!showForm);
@@ -64,7 +64,7 @@ function LoginButton() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn submit-btn">
               Submit
             </button>
           </form>

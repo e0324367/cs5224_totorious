@@ -1,3 +1,19 @@
+body {
+  background-color: #fff5eb;
+  color: #014483;
+  margin: 0;
+  padding: 0;
+  font-family: 'Geist', sans-serif;
+}
+
+h1, h3, h5 {font-family: 'Noto Serif Toto', serif;
+font-weight: bold;}
+
+h2, h4, h6 {
+  font-family: 'Geist', sans-serif; 
+  font-weight: bold;
+}
+
 .app {
     padding: 20px;
   }
@@ -18,7 +34,7 @@
   .circle {
     width: 50px;
     height: 50px;
-    background-color: #3498db;
+    background-color: #08A4BD;
     color: white;
     border-radius: 50%;
     display: flex;
@@ -77,4 +93,44 @@
 
   .custom-width {
     max-width: 75%
+  }
+
+  .nav-link {
+    color: #08A4BD;
+  }
+
+  .navbar .nav-link.active {
+    color: #014483;
+  }
+
+  .navbar .navbar-brand {
+    font-family: 'Noto Serif TOTO', serif;
+    font-weight: bold;
+    color: #014483;
+  }
+
+  .login-btn, .submit-btn, .signup-btn {
+    background-color: #08A4BD; 
+    color: white;
+  }
+  
+  .login-btn:hover, .submit-btn:hover, .signup-btn:hover {
+    background-color: #ef8061; 
+    color: white;
+  }
+
+  .logout-btn {
+    background-color: #ef8061; 
+    color: white;
+  }
+  
+  .logout-btn:hover {
+    background-color: #eb525c; 
+    color: white;
+  }
+
+  .message-block {
+    font-family: 'Noto Serif TOTO', serif;
+    font-weight: bold;
+    color: #eb525c;
   }

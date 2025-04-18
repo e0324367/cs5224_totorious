@@ -6,7 +6,7 @@ function LoginHeaderBar() {
   return (
     <nav
       className="navbar navbar-expand-lg"
-      style={{ backgroundColor: "#DCDEE6" }}
+      style={{ backgroundColor: "#cee5e2" }}
     >
       <div className="container-fluid">
         <span className="navbar-brand">TOTOrious</span>

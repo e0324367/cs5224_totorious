@@ -87,6 +87,7 @@ const HomePage: React.FC = () => {
     <div className="homepage">
       <HomeHeaderBar />
       <div className="container custom-width">
+        <br />
         <h1 style={{ textAlign: "center" }}>
           TOTORious Visualisation & Data Analytics Dashboard
         </h1>
@@ -94,33 +95,22 @@ const HomePage: React.FC = () => {
         {getting && <p>Fetching data...</p>}
         {data && (
           <>
-            <div
-              className="message-block"
-              style={{
-                marginTop: "2rem",
-                fontStyle: "italic",
-                color: "#007bff",
-              }}
-            >
+            <br />
+            <div className="message-block">
               <p>
-                <b>Consider below if you FOMO! Everyone is buying these numbers,
-                don't let me miss out!</b>
+                Consider below if you FOMO! Everyone is buying these numbers,
+                don't let me miss out!
               </p>
             </div>
             <TotoNumbers
               title="📈TOTO Numbers Drawn with Highest Frequency📈"
               numbers={data.most_frequent_numbers}
             />
-            <div
-              className="message-block"
-              style={{
-                marginTop: "2rem",
-                fontStyle: "italic",
-                color: "#28a745",
-              }}
-            >
+            <br />
+            <br />
+            <div className="message-block">
               <p>
-                <b>Nah, I don't follow the crowd, let me trot the path less taken</b>
+                Nah, I don't follow the crowd, let me trot the path less taken
               </p>
             </div>
             <TotoNumbers
@@ -130,7 +120,7 @@ const HomePage: React.FC = () => {
             <h2
               style={{
                 marginTop: "3rem",
-                color: "#dc3545",
+                color: "#ef8061",
                 textAlign: "center",
               }}
             >
@@ -146,7 +136,7 @@ const HomePage: React.FC = () => {
             <h2
               style={{
                 marginTop: "3rem",
-                color: "#dc3545",
+                color: "#ef8061",
                 textAlign: "center",
               }}
             >
@@ -157,30 +147,22 @@ const HomePage: React.FC = () => {
         )}
         {sigmaNumbers && (
           <>
-            <div
-              className="message-block"
-              style={{
-                marginTop: "2rem",
-                fontStyle: "italic",
-                color: "#007bff",
-              }}
-            >
-              <p><b>Hmm... how about getting some numbers through 𝓂𝒶𝓉𝒽?</b></p>
+            <br />
+            <br />
+            <div className="message-block">
+              <p>
+                Hmm... how about getting some numbers through <em>math</em>?
+              </p>
             </div>
             <TotoNumbers title="✨Sigma Numbers✨" numbers={sigmaNumbers} />
           </>
         )}
         {randomNumbers && (
           <>
-            <div
-              className="message-block"
-              style={{
-                marginTop: "2rem",
-                fontStyle: "italic",
-                color: "#28a745",
-              }}
-            >
-              <p><b>Let me leave it up to fate!</b></p>
+            <br />
+            <br />
+            <div className="message-block">
+              <p>Let me leave it up to fate!</p>
             </div>
             <TotoNumbers
               title="🎲Completely Random Numbers🎲"
@@ -188,6 +170,8 @@ const HomePage: React.FC = () => {
             />
           </>
         )}
+        <br />
+        <br />
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ function HomeHeaderBar() {
   return (
     <nav
       className="navbar navbar-expand-lg"
-      style={{ backgroundColor: "#DCDEE6" }}
+      style={{ backgroundColor: "#cee5e2" }}
     >
       <div className="container-fluid">
         <span className="navbar-brand">TOTOrious</span>
@@ -51,7 +51,11 @@ function HomeHeaderBar() {
               </Link>
             </li>
           </ul>
-          <button type="button" className="btn nav-link" onClick={handleLogout}>
+          <button
+            type="button"
+            className="btn logout-btn"
+            onClick={handleLogout}
+          >
             Logout
           </button>
         </div>

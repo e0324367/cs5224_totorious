@@ -5,19 +5,27 @@ function Carousel() {
       className="carousel slide carousel-fade"
       style={{
         margin: "0 auto",
-        border: "5px solid #DCDEE6",
+        border: "5px solid #cee5e2",
         borderRadius: "10px",
       }}
     >
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img src="/image1.png" className="d-block w-100" alt="First image" />
+          <img
+            src="/image1.png"
+            className="d-block w-100"
+            alt="Why use TOTOrious?"
+          />
         </div>
         <div className="carousel-item">
           <img src="/image2.png" className="d-block w-100" alt="Second image" />
         </div>
         <div className="carousel-item">
-          <img src="/image3.png" className="d-block w-100" alt="Third image" />
+          <img
+            src="/image3.png"
+            className="d-block w-100"
+            alt="National Problem Gambling Helpline"
+          />
         </div>
       </div>
       <button

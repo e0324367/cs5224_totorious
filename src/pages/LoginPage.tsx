@@ -30,9 +30,9 @@ function LoginPage() {
       <br />
       <div className="container custom-width">
         <h1 style={{ textAlign: "center" }}>Welcome to TOTOrious!</h1>
-        <h3 style={{ textAlign: "center" }}>
+        <h2 style={{ textAlign: "center" }}>
           Don't know what numbers to buy? Fret not!
-        </h3>
+        </h2>
         <br />
         <Carousel />
         <br />
