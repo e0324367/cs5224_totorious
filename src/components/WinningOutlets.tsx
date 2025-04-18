@@ -1,16 +1,26 @@
-import React from 'react';
+import React from "react";
 
 interface WinningOutletsProps {
-  outlets: { [key: string]: string };
+  outlets: { [key: string]: string[] };
 }
 
 const WinningOutlets: React.FC<WinningOutletsProps> = ({ outlets }) => {
+  const tierToLabel: { [key: string]: string } = {
+    gold: "Gold Outlet",
+    silver: "Silver Outlet",
+    bronze: "Bronze Outlet",
+  };
+
   return (
     <div className="outlet-container">
       {Object.keys(outlets).map((tier, index) => (
         <div key={index} className={`outlet-box ${tier}`}>
-          <h2>{tier.charAt(0).toUpperCase() + tier.slice(1)} Outlet</h2>
-          <p>{outlets[tier]}</p>
+          <h3>{tierToLabel[tier]}</h3>
+          <ul style={{ listStyleType: "none", padding: 0, margin: 0 }}>
+            {outlets[tier].map((outlet, idx) => (
+              <li key={idx}>{outlet}</li>
+            ))}
+          </ul>
         </div>
       ))}
     </div>
