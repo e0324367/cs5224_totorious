@@ -6,9 +6,9 @@ interface WinningOutletsProps {
 
 const WinningOutlets: React.FC<WinningOutletsProps> = ({ outlets }) => {
   const tierToLabel: { [key: string]: string } = {
-    gold: "Gold Outlet",
-    silver: "Silver Outlet",
-    bronze: "Bronze Outlet",
+    gold: "Gold Outlets",
+    silver: "Silver Outlets",
+    bronze: "Bronze Outlets",
   };
 
   return (
